@@ -8,6 +8,25 @@
   <!-- Зовнішній CSS -->
   <link rel="stylesheet" href="style.css" />
 
+  <!-- ================================================
+       alert, prompt, confirm
+       ================================================ -->
+  <script>
+
+    alert("👾 Ласкаво просимо на GameWorld!");
+
+    var userName = prompt("Як тебе звати?");
+
+    if (userName) {
+      var wantsInfo = confirm("Привіт, " + userName + "! Бажаєш дізнатись про сайт?");
+      if (wantsInfo) {
+        alert("GameWorld — сайт про відеоігри.\nЖанри, Топ 10, контакти автора.");
+      } else {
+        alert("Добре, " + userName + ", переглядай сайт самостійно!");
+      }
+    }
+  </script>
+
   <!-- Стиль рівня документу — перевизначає колір посилань із зовнішнього CSS -->
   <style>
     a {
@@ -98,6 +117,117 @@
   </div>
 
   <a href="#" id="scroll-top" title="Вгору">↑</a>
+
+  <script src="script.js"></script>
+
+  <script>
+
+    function goToTop10() {
+      location.href = "top10.html";
+    }
+
+    var factSection = document.getElementById("facts");
+
+    var allListItems = document.querySelectorAll("li");
+
+    if (factSection) {
+      factSection.innerHTML = "🎮 Цікаві факти про відеоігри <span style='color:#ff00c8; font-size:14px;'>(оновлено через innerHTML)</span>";
+    }
+
+    if (allListItems.length > 0) {
+      var firstItemText = allListItems[0].textContent;
+      console.log("textContent першого li:", firstItemText);
+
+      var firstTextNode = allListItems[0].firstChild;
+      console.log("nodeValue першого текстового вузла:", firstTextNode ? firstTextNode.nodeValue : "немає");
+    }
+
+    var navEl = document.querySelector("nav");
+    if (navEl) {
+      console.log("outerHTML навігації:", navEl.outerHTML);
+    }
+
+    document.write("<!-- document.write: скрипт виконано успішно -->");
+
+    var jsSection = document.createElement("section");
+    jsSection.id = "js-demo";
+    jsSection.style.cssText = "background:#0d1829; border:1px solid rgba(0,245,255,0.2); border-radius:8px; padding:20px 24px; margin:24px 0;";
+
+
+    var jsTitle = document.createElement("h2");
+    var jsTitleText = document.createTextNode("JavaScript — демонстрація DOM");
+    jsTitle.appendChild(jsTitleText);
+
+    var jsDesc = document.createElement("p");
+    jsDesc.textContent = "Цей блок створено динамічно через JavaScript: createElement, createTextNode, append.";
+    jsDesc.style.color = "#8099bb";
+
+    // Блок кнопок
+    var btnBlock = document.createElement("div");
+    btnBlock.style.cssText = "display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;";
+
+    // Допоміжна функція створення кнопки
+    function makeBtn(label, onclick) {
+      var btn = document.createElement("button");
+      btn.textContent = label;
+      btn.onclick = onclick;
+      btn.style.cssText = "background:#0a1828; color:#00f5ff; border:1px solid rgba(0,245,255,0.4); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;";
+      return btn;
+    }
+
+    // Кнопка 1 — Діалог з користувачем (зовнішня функція)
+    btnBlock.appendChild(makeBtn("💬 Діалог ", dialogWithUser));
+
+    // Кнопка 2 — Інфо про розробника (зовнішня функція)
+    btnBlock.appendChild(makeBtn("👤 Інфо про розробника", function () {
+      showDeveloperInfo("Шермер", "Володимир", "Студент");
+    }));
+
+    // Кнопка 3 — Порівняти два рядки (зовнішня функція)
+    btnBlock.appendChild(makeBtn("🔤 Порівняти рядки", compareTwoStrings));
+
+    // Кнопка 4 — Змінити фон на 30 сек (зовнішня функція)
+    btnBlock.appendChild(makeBtn("🎨 Змінити фон (30 сек)", changeBackgroundFor30s));
+
+    // Кнопка 5 — Перенаправлення через location (BOM)
+    btnBlock.appendChild(makeBtn("🏆 Перейти до Топ 10", goToTop10));
+
+    // Складаємо секцію: append — додає в кінець
+    jsSection.append(jsTitle, jsDesc, btnBlock);
+
+    // --- node.prepend — додаємо мітку на ПОЧАТОК секції ---
+    var badge = document.createElement("span");
+    badge.textContent = "✦ JS LIVE DEMO";
+    badge.style.cssText = "color:#ff00c8; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:2px;";
+    jsSection.prepend(badge);
+
+    // --- node.after — додаємо підказку ПІСЛЯ блоку кнопок ---
+    var hint = document.createElement("p");
+    hint.textContent = "👆 Натисни будь-яку кнопку, щоб перевірити роботу скриптів.";
+    hint.style.cssText = "color:#6080a0; font-size:13px; margin-top:12px;";
+    btnBlock.after(hint);
+
+    // --- node.replaceWith — замінюємо тимчасовий елемент ---
+    var tempEl = document.createElement("span");
+    tempEl.id = "temp-placeholder";
+    tempEl.textContent = "[ заглушка ]";
+    var replacement = document.createElement("span");
+    replacement.textContent = "[ замінено через replaceWith ]";
+    replacement.style.color = "#00f5ff";
+    // Додаємо tempEl, потім одразу замінюємо
+    hint.after(tempEl);
+    tempEl.replaceWith(replacement);
+
+    // --- node.remove — видаляємо заміну (прибираємо зайве) ---
+    replacement.remove();
+
+    // Вставляємо готову секцію перед футером
+    var footer = document.getElementById("page-footer");
+    if (footer) {
+      footer.before(jsSection);
+    }
+
+  </script>
 
 </body>
 </html>
