@@ -70,6 +70,7 @@ p {
 
 /* ================================================
    ПОСИЛАННЯ — базові стилі із зовнішнього CSS
+   (перевизначаються стилем рівня документу в HTML)
    ================================================ */
 a {
   color: var(--neon);
@@ -287,93 +288,4 @@ iframe {
   border-radius: 6px;
   display: block;
   margin: 16px 0;
-}
-
-/* ================================================
-   КОНТЕКСТНІ СЕЛЕКТОРИ
-   ================================================ */
-
-dd i {
-  color: var(--neon2);
-  font-style: italic;
-}
-
-td b {
-  color: #ffffff;
-  font-weight: 700;
-}
-
-ul a {
-  text-decoration: none;
-  border-bottom: 1px dashed var(--neon);
-}
-
-ul a:hover {
-  border-bottom-color: var(--neon2);
-}
-
-p b {
-  color: var(--neon);
-}
-
-/* ================================================
-   ДОЧІРНІ СЕЛЕКТОРИ
-   ================================================ */
-
-ul > li {
-  border-left: 2px solid rgba(0, 245, 255, 0.3);
-  padding-left: 10px;
-  list-style: none;
-  margin-left: -10px;
-}
-
-ol > li {
-  padding-left: 4px;
-}
-
-dl > dt {
-  border-top: 1px solid rgba(0, 245, 255, 0.1);
-  padding-top: 10px;
-}
-
-tbody > tr > td {
-  background-color: rgba(13, 21, 32, 0.6);
-}
-
-tbody > tr:hover > td {
-  background-color: rgba(0, 245, 255, 0.06);
-}
-
-/* ================================================
-   СУСІДНІ СЕЛЕКТОРИ
-   ================================================ */
-
-h2 + p {
-  color: #aac4e0;
-  font-style: italic;
-  font-size: 16px;
-}
-
-p + ul {
-  margin-top: 2px;
-}
-
-p + ol {
-  margin-top: 2px;
-}
-
-dl + h3 {
-  color: var(--neon2);
-  margin-top: 24px;
-}
-
-hr ~ p {
-  color: var(--text-muted);
-  font-size: 14px;
-  text-align: center;
-}
-
-h2 ~ h2 {
-  border-top: 1px solid rgba(0, 245, 255, 0.08);
-  padding-top: 20px;
 }
