@@ -4,11 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="author" content="Шермер Володимир" />
   <title>GameWorld — Жанри ігор</title>
+
+  <!-- Зовнішній CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Стиль рівня документу — перевизначає посилання -->
+  <style>
+    a {
+      color: #00f5ff;
+    }
+    a:hover {
+      color: #ff00c8;
+      text-shadow: 0 0 6px #ff00c8;
+    }
+    nav a {
+      color: #c8d8f0 !important;
+    }
+    nav a:hover {
+      color: #00f5ff !important;
+    }
+    dt {
+      font-size: 18px !important;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
-  <h1>Жанри відеоігор</h1>
-  <p>На цій сторінці буде зібрана інформація про основні жанри відеоігор.</p>
-  <p>Відеоігри поділяються на багато жанрів: RPG, шутери, стратегії, симулятори та інші.</p>
 
   <nav>
     <a href="index.html">Головна</a> |
@@ -17,6 +38,133 @@
     <a href="contacts.html">Контакти</a>
   </nav>
 
-  <p>Автор: Шермер Володимир</p>
+  <div id="page-wrapper">
+
+    <h1>Жанри відеоігор</h1>
+
+    <hr>
+
+    <!-- Навігація по сторінці -->
+    <p>
+      <a href="#rpg">RPG</a> |
+      <a href="#shooter">Шутери</a> |
+      <a href="#strategy">Стратегії</a> |
+      <a href="#simulator">Симулятори</a>
+    </p>
+
+    <!-- Внутрішній стиль на абзац -->
+    <p style="font-size:16px; color:#8099bb; font-style:italic; border-bottom:1px solid rgba(0,245,255,0.15); padding-bottom:12px;">
+      Відеоігри поділяються на безліч жанрів. Кожен жанр має свої
+      особливості, механіки та аудиторію. Нижче розглянемо найпопулярніші з них.
+    </p>
+
+    <!-- ======= RPG ======= -->
+    <h2 id="rpg">⚔️ RPG — Рольові ігри</h2>
+
+    <p><b>RPG (Role-Playing Game)</b> — жанр, де гравець керує персонажем,
+    розвиває його характеристики та приймає рішення, що впливають на сюжет.
+    Це один із <i>найглибших та найбагатших</i> жанрів у плані оповіді.</p>
+
+    <p>Ключові особливості RPG:</p>
+    <ul type="disc">
+      <li>Прокачування персонажа</li>
+      <li>Розгалужений сюжет з вибором</li>
+      <li>Великий відкритий світ</li>
+      <li>Глибока система діалогів</li>
+    </ul>
+
+    <!-- Картинка зі зміненим розміром -->
+    <p>
+      <a href="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" target="_blank">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"
+          alt="The Witcher 3"
+          width="200"
+          height="150"
+          title="Натисни щоб побачити повний розмір"
+        />
+      </a>
+    </p>
+
+    <!-- Список визначень -->
+    <h3>Підвиди RPG:</h3>
+    <dl>
+      <dt>Action RPG</dt>
+      <dd>Поєднує рольові механіки з активними боями в реальному часі. Приклад: <i>Elden Ring</i>, <i>Dark Souls</i></dd>
+
+      <dt>JRPG</dt>
+      <dd>Японські рольові ігри з покроковими боями та аніме-стилістикою. Приклад: <i>Final Fantasy</i>, <i>Persona 5</i></dd>
+
+      <dt>MMORPG</dt>
+      <dd>Масові багатокористувацькі онлайн RPG. Приклад: <i>World of Warcraft</i>, <i>Lost Ark</i></dd>
+
+      <dt>Тактична RPG</dt>
+      <dd>Поєднання рольових елементів з тактичними боями на сітці. Приклад: <i>Baldur's Gate 3</i>, <i>XCOM</i></dd>
+    </dl>
+
+    <!-- ======= ШУТЕРИ ======= -->
+    <h2 id="shooter">🔫 Шутери (FPS / TPS)</h2>
+
+    <p><b>Шутери</b> — ігри, де основна механіка полягає у стрільбі.
+    <b>FPS (First Person Shooter)</b> — вид від першої особи,
+    <b>TPS (Third Person Shooter)</b> — вид від третьої особи.</p>
+
+    <p>Шутери є <i>найпопулярнішим жанром</i> в онлайн-грі та кіберспорті.
+    Такі ігри як CS2 та Valorant збирають мільйони глядачів на турнірах.</p>
+
+    <!-- Картинка збільшена в 2 рази -->
+    <p>
+      <a href="https://upload.wikimedia.org/wikipedia/en/f/f2/CS2_Cover_Art.jpg" target="_blank">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/f/f2/CS2_Cover_Art.jpg"
+          alt="Counter-Strike 2"
+          width="800"
+          height="600"
+          title="Натисни щоб побачити повний розмір"
+        />
+      </a>
+    </p>
+
+    <h3>Топ шутерів:</h3>
+    <ol type="A">
+      <li><b>Counter-Strike 2</b> — тактичний шутер від Valve</li>
+      <li><b>Valorant</b> — тактичний шутер від Riot Games</li>
+      <li><b>Call of Duty: Warzone</b> — Battle Royale шутер</li>
+      <li><b>Apex Legends</b> — динамічний Battle Royale</li>
+    </ol>
+
+    <!-- ======= СТРАТЕГІЇ ======= -->
+    <h2 id="strategy">♟️ Стратегії</h2>
+
+    <p><b>Стратегічні ігри</b> вимагають від гравця планування,
+    управління ресурсами та прийняття тактичних рішень.
+    Це жанр для тих, хто любить <i>думати наперед</i>.</p>
+
+    <ul type="circle">
+      <li><b>RTS (Real-Time Strategy)</b> — бої в реальному часі: StarCraft II, Age of Empires</li>
+      <li><b>TBS (Turn-Based Strategy)</b> — покрокові стратегії: Civilization VI, XCOM</li>
+      <li><b>4X стратегії</b> — дослідження, розширення, використання, знищення</li>
+    </ul>
+
+    <!-- ======= СИМУЛЯТОРИ ======= -->
+    <h2 id="simulator">🏙️ Симулятори</h2>
+
+    <p><b>Симулятори</b> відтворюють реальні або вигадані ситуації.
+    Від управління містом до пілотування літака — цей жанр надзвичайно різноманітний.</p>
+
+    <p>Популярні представники жанру:
+    <a href="https://www.ea.com/games/the-sims" target="_blank">The Sims 4</a>,
+    <a href="https://www.paradoxinteractive.com/games/cities-skylines" target="_blank">Cities: Skylines</a>,
+    <a href="https://www.flightsimulator.com" target="_blank">Microsoft Flight Simulator</a>.
+    </p>
+
+    <hr>
+
+  </div>
+
+  <div id="page-footer">
+    2026 GameWorld | Автор: <b>Шермер Володимир</b>
+  </div>
+
 </body>
 </html>

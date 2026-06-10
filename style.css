@@ -1,0 +1,379 @@
+
+
+/* === CSS ЗМІННІ === */
+:root {
+  --neon: #00f5ff;
+  --neon2: #ff00c8;
+  --dark: #0d1117;
+  --card: #0d1829;
+  --text: #c8d8f0;
+  --text-muted: #6080a0;
+  --border: rgba(0, 245, 255, 0.2);
+}
+
+/* ================================================
+   СЕЛЕКТОР ТЕГА — body
+   ================================================ */
+body {
+  background-color: #0d1117;
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================================
+   ЗАГОЛОВКИ (HN) — селектори тегів
+   ================================================ */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--neon);
+  text-align: center;
+  line-height: 1.2;
+  margin: 24px 0 16px 0;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 32px 0 12px 0;
+  border-left: 3px solid var(--neon);
+  padding-left: 12px;
+}
+
+h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  margin: 20px 0 8px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ================================================
+   АБЗАЦИ
+   ================================================ */
+p {
+  margin: 10px 0 14px 0;
+  color: var(--text);
+}
+
+/* ================================================
+   ПОСИЛАННЯ — базові стилі із зовнішнього CSS
+   ================================================ */
+a {
+  color: var(--neon);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--neon);
+}
+
+a:visited {
+  color: #7ecfff;
+}
+
+a:active {
+  color: var(--neon2);
+}
+
+/* ================================================
+   НАВІГАЦІЯ
+   ================================================ */
+nav {
+  background-color: rgba(13, 18, 30, 0.97);
+  padding: 14px 40px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: var(--text);
+  margin: 0 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+nav a:hover {
+  color: var(--neon);
+}
+
+/* ================================================
+   КЛАС .highlight — виділення важливого тексту
+   ================================================ */
+.highlight {
+  color: var(--neon);
+  font-weight: 700;
+}
+
+/* ================================================
+   КЛАС .card — блок-картка
+   ================================================ */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+
+/* ================================================
+   КЛАС .text-muted — приглушений текст
+   ================================================ */
+.text-muted {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* ================================================
+   ІДЕНТИФІКАТОР #page-wrapper — обгортка сторінки
+   ================================================ */
+#page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 40px 60px;
+}
+
+/* ================================================
+   ІДЕНТИФІКАТОР #page-footer — підвал
+   ================================================ */
+#page-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 24px 40px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ================================================
+   СПИСКИ
+   ================================================ */
+ul {
+  padding-left: 28px;
+  margin: 10px 0 16px 0;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+ul li {
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.05);
+}
+
+ul li::marker {
+  color: var(--neon);
+}
+
+ol {
+  padding-left: 28px;
+  margin: 10px 0 16px 0;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+ol li {
+  padding: 3px 0;
+}
+
+ol li::marker {
+  color: var(--neon2);
+  font-weight: 700;
+}
+
+dl {
+  margin: 10px 0 16px 0;
+}
+
+dt {
+  color: var(--neon);
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+dd {
+  color: var(--text);
+  margin-left: 20px;
+  padding: 4px 0 8px 12px;
+  border-left: 2px solid var(--border);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ================================================
+   ТАБЛИЦІ
+   ================================================ */
+table {
+  width: 100%;
+  margin: 20px 0;
+  font-size: 15px;
+  background-color: var(--card);
+  border-collapse: separate;
+  border-spacing: 3px;
+}
+
+caption {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--neon);
+  padding: 10px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+th {
+  background-color: #1a2a4a;
+  color: var(--neon);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 12px;
+  letter-spacing: 1px;
+  border: 1px solid var(--border);
+}
+
+td {
+  color: var(--text);
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 245, 255, 0.08);
+  vertical-align: middle;
+}
+
+tr:hover td {
+  background-color: rgba(0, 245, 255, 0.04);
+}
+
+/* ================================================
+   РІЗНЕ
+   ================================================ */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+img {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+img:hover {
+  opacity: 0.85;
+}
+
+iframe {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: block;
+  margin: 16px 0;
+}
+
+/* ================================================
+   КОНТЕКСТНІ СЕЛЕКТОРИ
+   ================================================ */
+
+dd i {
+  color: var(--neon2);
+  font-style: italic;
+}
+
+td b {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+ul a {
+  text-decoration: none;
+  border-bottom: 1px dashed var(--neon);
+}
+
+ul a:hover {
+  border-bottom-color: var(--neon2);
+}
+
+p b {
+  color: var(--neon);
+}
+
+/* ================================================
+   ДОЧІРНІ СЕЛЕКТОРИ
+   ================================================ */
+
+ul > li {
+  border-left: 2px solid rgba(0, 245, 255, 0.3);
+  padding-left: 10px;
+  list-style: none;
+  margin-left: -10px;
+}
+
+ol > li {
+  padding-left: 4px;
+}
+
+dl > dt {
+  border-top: 1px solid rgba(0, 245, 255, 0.1);
+  padding-top: 10px;
+}
+
+tbody > tr > td {
+  background-color: rgba(13, 21, 32, 0.6);
+}
+
+tbody > tr:hover > td {
+  background-color: rgba(0, 245, 255, 0.06);
+}
+
+/* ================================================
+   СУСІДНІ СЕЛЕКТОРИ
+   ================================================ */
+
+h2 + p {
+  color: #aac4e0;
+  font-style: italic;
+  font-size: 16px;
+}
+
+p + ul {
+  margin-top: 2px;
+}
+
+p + ol {
+  margin-top: 2px;
+}
+
+dl + h3 {
+  color: var(--neon2);
+  margin-top: 24px;
+}
+
+hr ~ p {
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+h2 ~ h2 {
+  border-top: 1px solid rgba(0, 245, 255, 0.08);
+  padding-top: 20px;
+}

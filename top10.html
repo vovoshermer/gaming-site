@@ -4,11 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="author" content="Шермер Володимир" />
   <title>GameWorld — Топ 10 ігор</title>
+
+  <!-- Зовнішній CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Стиль рівня документу -->
+  <style>
+    a {
+      color: #00f5ff;
+    }
+    a:hover {
+      color: #ff00c8;
+    }
+    nav a {
+      color: #c8d8f0 !important;
+    }
+    nav a:hover {
+      color: #00f5ff !important;
+    }
+    caption {
+      text-align: center !important;
+    }
+  </style>
 </head>
 <body>
-  <h1>Топ 10 відеоігор всіх часів</h1>
-  <p>На цій сторінці буде представлено найкращі відеоігри за версією гравців з усього світу.</p>
-  <p>Рейтинг буде складено на основі оцінок критиків та думок мільйонів гравців!!!</p>
 
   <nav>
     <a href="index.html">Головна</a> |
@@ -17,6 +36,182 @@
     <a href="contacts.html">Контакти</a>
   </nav>
 
-  <p>Автор: Шермер Володимир</p>
+  <div id="page-wrapper">
+
+    <h1>Топ 10 відеоігор нашого часу</h1>
+
+    <hr>
+
+    <p>Рейтинг складено на основі оцінок критиків та думок <b>мільйонів гравців</b> з усього світу.</p>
+
+    <!-- Внутрішній стиль на абзац -->
+    <p style="font-size:14px; color:#6080a0; border:1px solid rgba(0,245,255,0.15); padding:10px 16px; border-radius:4px;">
+      Переглянь також:
+      <a href="https://www.gamesradar.com/best-rpg-games/">якщо бажаєте більше RPG</a> |
+      <a href="https://www.gamesradar.com/best-fps-games/">якщо бажаєте більше шутерів</a> |
+      <a href="https://www.metacritic.com/game/" target="_blank">Metacritic — оцінки ігор</a>
+    </p>
+
+    <!-- ======= ПРОСТА ТАБЛИЦЯ 3x4 ======= -->
+    <h2>Огляд топ ігор</h2>
+
+    <table border="1" cellspacing="5" cellpadding="8" width="700">
+      <caption><b>Відеоігри — короткий огляд</b></caption>
+
+      <tr>
+        <th>Назва гри</th>
+        <th>Жанр</th>
+        <th>Рік</th>
+        <th>Розробник</th>
+      </tr>
+
+      <!-- Рядок 1 — картинки з посиланнями -->
+      <tr>
+        <td align="center">
+          <a href="https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"
+                 alt="The Witcher 3" width="80" height="60" title="The Witcher 3" />
+          </a>
+        </td>
+        <td align="center">
+          <a href="https://en.wikipedia.org/wiki/Red_Dead_Redemption_2" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Red_Dead_Redemption_II.jpg/250px-Red_Dead_Redemption_II.jpg"
+                 alt="Red Dead Redemption 2" width="80" height="60" title="RDR2" />
+          </a>
+        </td>
+        <td align="center">
+          <a href="https://en.wikipedia.org/wiki/Elden_Ring" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Elden_Ring_Box_art.jpg/250px-Elden_Ring_Box_art.jpg"
+                 alt="Elden Ring" width="80" height="60" title="Elden Ring" />
+          </a>
+        </td>
+        <td align="center">
+          <a href="https://en.wikipedia.org/wiki/Counter-Strike_2" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/CS2_Cover_Art.jpg/250px-CS2_Cover_Art.jpg"
+                 alt="Counter-Strike 2" width="80" height="60" title="Counter-Strike 2" />
+          </a>
+        </td>
+      </tr>
+
+      <!-- Рядок 2 — гіперпосилання -->
+      <tr>
+        <td align="center"><a href="https://www.thewitcher.com" target="_blank">The Witcher 3</a></td>
+        <td align="center"><a href="https://www.rockstargames.com/reddeadredemption2" target="_blank">Red Dead Redemption 2</a></td>
+        <td align="center"><a href="https://en.bandainamcoent.eu/elden-ring" target="_blank">Elden Ring</a></td>
+        <td align="center"><a href="https://www.counter-strike.net/cs2" target="_blank">Counter-Strike 2</a></td>
+      </tr>
+
+      <!-- Рядок 3 — текст -->
+      <tr>
+        <td>Action RPG, 2015</td>
+        <td>Action-adventure, 2018</td>
+        <td>Action RPG, 2022</td>
+        <td>FPS, 2023</td>
+      </tr>
+
+    </table>
+
+    <!-- ======= СКЛАДНА ТАБЛИЦЯ ======= -->
+    <h2>Порівняння характеристик топ ігор</h2>
+
+    <table border="1" cellspacing="3" cellpadding="10" width="750">
+      <caption><b>Порівняльна характеристика ігор</b></caption>
+
+      <colgroup>
+        <col style="background-color:#0a0f1a;" width="180" />
+        <col style="background-color:#0d1520;" width="120" />
+        <col style="background-color:#0a1015;" width="120" />
+        <col style="background-color:#0d1520;" width="140" />
+        <col style="background-color:#0a1015;" width="120" />
+      </colgroup>
+
+      <thead>
+        <tr>
+          <th rowspan="2">Гра</th>
+          <th colspan="2">Оцінки</th>
+          <th rowspan="2">Платформа</th>
+          <th rowspan="2">Онлайн</th>
+        </tr>
+        <tr>
+          <th>Критики</th>
+          <th>Гравці</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr align="center">
+          <td align="left"><b>The Witcher 3</b></td>
+          <td>9.3</td>
+          <td>9.8</td>
+          <td>PC, PS5, Xbox</td>
+          <td>Ні</td>
+        </tr>
+        <tr align="center">
+          <td align="left"><b>Red Dead 2</b></td>
+          <td>9.7</td>
+          <td>9.5</td>
+          <td>PC, PS5, Xbox</td>
+          <td>Так</td>
+        </tr>
+        <tr align="center">
+          <td align="left"><b>GTA V</b></td>
+          <td>9.7</td>
+          <td>9.0</td>
+          <td>PC, PS5, Xbox</td>
+          <td>Так</td>
+        </tr>
+        <tr align="center">
+          <td align="left"><b>Minecraft</b></td>
+          <td>9.3</td>
+          <td>9.2</td>
+          <td>PC, PS, Xbox, Mobile</td>
+          <td>Так</td>
+        </tr>
+        <tr align="center">
+          <td align="left"><b>Elden Ring</b></td>
+          <td>9.6</td>
+          <td>9.5</td>
+          <td>PC, PS5, Xbox</td>
+          <td>Кооп</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="5" align="center">
+            <i>Джерело: Metacritic, OpenCritic</i>
+          </td>
+        </tr>
+      </tfoot>
+
+    </table>
+
+    <h2 id="top1">🏆 #1 — The Witcher 3: Wild Hunt</h2>
+
+    <p><b>The Witcher 3: Wild Hunt</b> — рольова гра з відкритим світом,
+    розроблена польською студією <i>CD Projekt Red</i> у 2015 році.</p>
+
+    <p>Гра отримала понад <b>800 нагород</b> від різних видань і досі вважається
+    еталоном жанру RPG. Головний герой — <i>Геральт із Рівії</i>, мисливець на монстрів.</p>
+
+    <p>Та ось можна прочитати про цю гру:</p>
+
+    <!-- Плаваючий фрейм -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt"
+      title="The Witcher 3"
+      frameborder="0">
+    </iframe>
+
+    <hr>
+
+  </div>
+
+  <div id="page-footer">
+    2026 GameWorld | Автор: <b>Шермер Володимир</b>
+  </div>
+
 </body>
 </html>

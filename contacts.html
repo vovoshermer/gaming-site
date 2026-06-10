@@ -4,11 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="author" content="Шермер Володимир" />
   <title>GameWorld — Контакти</title>
+
+  <!-- Зовнішній CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Стиль рівня документу — перевизначає посилання -->
+  <style>
+    a {
+      color: #00f5ff;
+    }
+    a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    nav a {
+      color: #c8d8f0 !important;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #00f5ff !important;
+      text-decoration: none;
+    }
+    dd {
+      font-size: 16px !important;
+    }
+  </style>
 </head>
 <body>
-  <h1>Контакти</h1>
-  <p>Якщо у вас є питання або пропозиції у майбутньому ви зможете зв'язатися з нами.</p>
-  <p>Ми будемо раді отримати відгук від наших відвідувачів.</p>
 
   <nav>
     <a href="index.html">Головна</a> |
@@ -17,6 +39,52 @@
     <a href="contacts.html">Контакти</a>
   </nav>
 
-  <p>Автор: Шермер Володимир</p>
+  <div id="page-wrapper">
+
+    <h1>Контакти</h1>
+
+    <hr>
+
+    <!-- Внутрішній стиль на абзац -->
+    <p style="background-color:#0d1829; padding:16px 20px; border-radius:6px; border-left:3px solid #ff00c8;">
+      Мої улюблені жанри:
+      <a href="genres.html#rpg"><b>RPG</b></a> та
+      <a href="genres.html#shooter"><b>Шутери</b></a>.
+    </p>
+
+    <h2>Контактна інформація</h2>
+
+    <dl>
+      <dt>📧 Email:</dt>
+      <dd><a href="mailto:vovoshermer@gmail.com">vovoshermer@gmail.com</a></dd>
+
+      <dt>🐙 GitHub:</dt>
+      <dd><a href="https://github.com/vovoshermer/gaming-site" target="_blank">github.com/vovoshermer/gaming-site</a></dd>
+
+      <dt>💬 Telegram:</dt>
+      <dd><a href="https://t.me/SherVova1" target="_blank">@SherVova1</a></dd>
+
+      <dt>📍 Місто:</dt>
+      <dd>Київ</dd>
+    </dl>
+
+    <h2>Корисні посилання</h2>
+
+    <p>Ресурси про відеоігри, які я рекомендую:</p>
+
+    <ul type="square">
+      <li><a href="https://www.metacritic.com" target="_blank">Metacritic</a> — оцінки ігор від критиків</li>
+      <li><a href="https://store.steampowered.com" target="_blank">Steam</a> — найбільший ігровий магазин</li>
+      <li><a href="https://www.ign.com" target="_blank">IGN</a> — новини та огляди ігор</li>
+    </ul>
+
+    <hr>
+
+  </div>
+
+  <div id="page-footer">
+    2026 GameWorld | Автор: <b>Шермер Володимир</b>
+  </div>
+
 </body>
 </html>
