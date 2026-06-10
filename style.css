@@ -70,7 +70,6 @@ p {
 
 /* ================================================
    ПОСИЛАННЯ — базові стилі із зовнішнього CSS
-   (перевизначаються стилем рівня документу в HTML)
    ================================================ */
 a {
   color: var(--neon);
@@ -288,4 +287,270 @@ iframe {
   border-radius: 6px;
   display: block;
   margin: 16px 0;
+}
+
+/* ================================================
+   КОНТЕКСТНІ СЕЛЕКТОРИ
+   ================================================ */
+
+dd i {
+  color: var(--neon2);
+  font-style: italic;
+}
+
+td b {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+ul a {
+  text-decoration: none;
+  border-bottom: 1px dashed var(--neon);
+}
+
+ul a:hover {
+  border-bottom-color: var(--neon2);
+}
+
+p b {
+  color: var(--neon);
+}
+
+/* ================================================
+   ДОЧІРНІ СЕЛЕКТОРИ
+   ================================================ */
+
+ul > li {
+  border-left: 2px solid rgba(0, 245, 255, 0.3);
+  padding-left: 10px;
+  list-style: none;
+  margin-left: -10px;
+}
+
+
+ol > li {
+  padding-left: 4px;
+}
+
+dl > dt {
+  border-top: 1px solid rgba(0, 245, 255, 0.1);
+  padding-top: 10px;
+}
+
+tbody > tr > td {
+  background-color: rgba(13, 21, 32, 0.6);
+}
+
+tbody > tr:hover > td {
+  background-color: rgba(0, 245, 255, 0.06);
+}
+
+/* ================================================
+   СУСІДНІ СЕЛЕКТОРИ
+   ================================================ */
+
+h2 + p {
+  color: #aac4e0;
+  font-style: italic;
+  font-size: 16px;
+}
+
+p + ul {
+  margin-top: 2px;
+}
+
+p + ol {
+  margin-top: 2px;
+}
+
+dl + h3 {
+  color: var(--neon2);
+  margin-top: 24px;
+}
+
+hr ~ p {
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+h2 ~ h2 {
+  border-top: 1px solid rgba(0, 245, 255, 0.08);
+  padding-top: 20px;
+}
+
+/* ================================================
+   ПОЗИЦІОНУВАННЯ
+   ================================================ */
+
+/* Відносне позиціонування — мітка "НОВИНКА" */
+.badge-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.badge-wrapper .badge {
+  position: absolute;
+  top: -10px;
+  right: -14px;
+  background-color: var(--neon2);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Фіксоване позиціонування — кнопка "Вгору" */
+#scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background-color: var(--neon2);
+  color: #fff;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 999;
+  box-shadow: 0 0 10px var(--neon2);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+#scroll-top:hover {
+  background-color: var(--neon);
+  box-shadow: 0 0 14px var(--neon);
+  color: #000;
+}
+
+/* ================================================
+   FLOAT — плаваючий блок анонсу
+   ================================================ */
+
+.float-box {
+  float: right;
+  width: 220px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 0 0 16px 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.float-box strong {
+  display: block;
+  color: var(--neon);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ================================================
+   SPAN — рядкові елементи
+   ================================================ */
+
+span.genre-tag {
+  display: inline-block;
+  background-color: rgba(0, 245, 255, 0.1);
+  color: var(--neon);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+span.accent {
+  color: var(--neon2);
+  font-weight: 700;
+}
+
+/* ================================================
+   ПСЕВДОКЛАСИ ДЛЯ ПОСИЛАНЬ
+   ================================================ */
+
+a:link {
+  color: var(--neon);
+}
+
+a:visited {
+  color: #7ecfff;
+}
+
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--neon);
+}
+
+a:active {
+  color: var(--neon2);
+}
+
+/* ================================================
+   ПСЕВДОКЛАС :first-child
+   ================================================ */
+
+ul li:first-child {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+ul li:first-child::marker {
+  color: var(--neon2);
+}
+
+ol li:first-child {
+  color: var(--neon);
+  font-weight: 700;
+}
+
+/* ================================================
+   ПСЕВДОЕЛЕМЕНТИ ::before, ::after
+   ================================================ */
+
+/* Декоративний символ перед кожним h2 */
+h2::before {
+  content: "// ";
+  color: var(--neon2);
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* Мітка після назви сайту в footer */
+#page-footer::after {
+  content: " ★ Усі права захищені";
+  color: rgba(0, 245, 255, 0.3);
+  font-size: 12px;
+}
+
+/* Лапки навколо тексту у тегах <q> */
+q::before {
+  content: "«";
+  color: var(--neon);
+}
+
+q::after {
+  content: "»";
+  color: var(--neon);
 }
