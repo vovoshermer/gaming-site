@@ -78,7 +78,6 @@ function compareTwoStrings() {
 
 // ================================================
 // 4. ЗМІНА ФОНУ СТОРІНКИ НА 30 СЕКУНД
-//    Використовує document.body.style
 // ================================================
 function changeBackgroundFor30s() {
   var originalBg = document.body.style.backgroundColor;
@@ -92,3 +91,173 @@ function changeBackgroundFor30s() {
     alert("Фон повернуто до початкового.");
   }, 30000);
 }
+
+
+// ================================================
+// ЗАВДАННЯ 1: ПОДІЇ МИШІ
+// ================================================
+
+// --- 1а. Функція-обробник для події миші ---
+function onMouseEnterHandler(event) {
+  event.currentTarget.style.outline = "2px solid #00f5ff";
+  event.currentTarget.style.boxShadow = "0 0 10px rgba(0,245,255,0.4)";
+}
+
+function onMouseLeaveHandler(event) {
+  event.currentTarget.style.outline = "";
+  event.currentTarget.style.boxShadow = "";
+}
+
+// Призначення через властивість (property)
+function assignMousePropertyHandlers() {
+  var demoBox = document.getElementById("mouse-demo-box");
+  if (!demoBox) return;
+
+  // Через атрибут onclick задано в HTML (onmouseover="onMouseEnterHandler(event)")
+  // Через властивість:
+  demoBox.onmouseout = onMouseLeaveHandler;
+}
+
+// --- 1б. addEventListener — кілька обробників одній події ---
+function initMultipleListeners() {
+  var btn = document.getElementById("multi-listener-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function firstHandler(e) {
+    var log = document.getElementById("event-log");
+    if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>Обробник 1: клік зафіксовано</div>");
+  });
+
+  btn.addEventListener("click", function secondHandler(e) {
+    var log = document.getElementById("event-log");
+    if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>Обробник 2: координати x=" + e.clientX + " y=" + e.clientY + "</div>");
+  });
+
+  btn.addEventListener("click", function thirdHandler(e) {
+    var log = document.getElementById("event-log");
+    if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>Обробник 3: час — " + new Date().toLocaleTimeString() + "</div>");
+  });
+}
+
+var objectHandler = {
+  handleEvent: function(event) {
+    var log = document.getElementById("event-log");
+    var el = event.currentTarget;
+    if (log) {
+      log.insertAdjacentHTML("beforeend",
+        "<div class='log-line'>Об'єкт-обробник"
+      );
+    }
+  }
+};
+
+function initObjectHandler() {
+  var box = document.getElementById("object-handler-box");
+  if (!box) return;
+  box.addEventListener("mouseover", objectHandler);
+}
+
+// --- 1г. Видалення обробника через removeEventListener ---
+function removeObjectHandler() {
+  var box = document.getElementById("object-handler-box");
+  if (!box) return;
+  box.removeEventListener("mouseover", objectHandler);
+  var log = document.getElementById("event-log");
+  if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>Об'єкт-обробник видалено");
+}
+
+// ================================================
+// ЗАВДАННЯ 2: ДЕЛЕГУВАННЯ ПОДІЙ
+// ================================================
+
+// --- 2а. Підсвічування елементів списку через event.target ---
+function initListHighlight() {
+  var list = document.getElementById("highlight-list");
+  if (!list) return;
+
+  list.onclick = function(event) {
+    // Знімаємо підсвічування з усіх li
+    var items = list.querySelectorAll("li");
+    items.forEach(function(li) { li.classList.remove("li-active"); });
+
+    // Підсвічуємо лише натиснутий елемент через event.target
+    if (event.target.tagName === "LI") {
+      event.target.classList.add("li-active");
+    }
+  };
+}
+
+// --- 2б. Меню кнопок з data-action + один обробник ---
+function menuAction_search() {
+  var log = document.getElementById("event-log");
+  if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>Пошук запущено</div>");
+}
+function menuAction_filter() {
+  var log = document.getElementById("event-log");
+  if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>Фільтр застосовано</div>");
+}
+function menuAction_sort() {
+  var log = document.getElementById("event-log");
+  if (log) log.insertAdjacentHTML("beforeend", "<div class='log-line'>⬆Сортування виконано</div>");
+}
+function menuAction_reset() {
+  var log = document.getElementById("event-log");
+  if (log) {
+    log.innerHTML = "";
+    log.insertAdjacentHTML("beforeend", "<div class='log-line'>Журнал очищено</div>");
+  }
+}
+
+function initDataMenu() {
+  var menu = document.getElementById("data-menu");
+  if (!menu) return;
+
+  menu.addEventListener("click", function(event) {
+    var btn = event.target.closest("[data-action]");
+    if (!btn) return;
+    var action = btn.dataset.action;
+    // Викликаємо відповідну функцію через словник
+    var actions = {
+      search: menuAction_search,
+      filter: menuAction_filter,
+      sort:   menuAction_sort,
+      reset:  menuAction_reset
+    };
+    if (actions[action]) actions[action]();
+  });
+}
+
+
+function initBehaviors() {
+  document.addEventListener("click", function(event) {
+    var el = event.target.closest("[data-behavior]");
+    if (!el) return;
+    var behavior = el.dataset.behavior;
+
+    if (behavior === "toggle-theme") {
+      document.body.classList.toggle("theme-light");
+      var log = document.getElementById("event-log");
+      var isLight = document.body.classList.contains("theme-light");
+      if (log) log.insertAdjacentHTML("beforeend",
+        "<div class='log-line'>Тема змінена: " + (isLight ? "світла" : "темна") + "</div>");
+    }
+
+    if (behavior === "scroll-to-top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    if (behavior === "clear-log") {
+      var log = document.getElementById("event-log");
+      if (log) log.innerHTML = '<div class="log-line" style="color:#6080a0;">Журнал очищено.</div>';
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  assignMousePropertyHandlers();
+  initMultipleListeners();
+  initObjectHandler();
+  initListHighlight();
+  initDataMenu();
+  initBehaviors();
+});

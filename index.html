@@ -113,10 +113,83 @@
   </div>
 
   <div id="page-footer">
-    2026 GameWorld | Автор: <b>Шермер Володимир</b>
+    GameWorld | Автор: <b>Шермер Володимир</b>
   </div>
 
   <a href="#" id="scroll-top" title="Вгору">↑</a>
+
+  <!-- ================================================
+       СЕКЦІЯ ПОДІЙ — Завдання 2
+       ================================================ -->
+  <section id="events-demo" style="background:#0d1829; border:1px solid rgba(0,245,255,0.2); border-radius:8px; padding:24px 28px; margin:32px 0;">
+
+    <span style="color:#ff00c8; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:2px;">JS EVENTS</span>
+    <h2>JavaScript — Події та делегування</h2>
+
+    <!-- === ЗАВДАННЯ 1: ПОДІЇ МИШІ === -->
+    <h3>1. Обробники події миші</h3>
+    <p style="color:#6080a0; font-size:14px;">Наведи курсор на блок нижче.</p>
+
+    <!-- Обробник через атрибут onmouseover -->
+    <div id="mouse-demo-box"
+         onmouseover="onMouseEnterHandler(event)"
+         style="background:#0a1020; border:1px dashed rgba(0,245,255,0.3); border-radius:6px; padding:16px 20px; cursor:pointer; margin-bottom:16px; color:#8099bb; transition:all 0.2s;">
+      Наведи мишу
+    </div>
+
+    <p style="color:#6080a0; font-size:14px;">Натисни кнопку — спрацюють обробники
+    <button id="multi-listener-btn" style="background:#0a1828; color:#00f5ff; border:1px solid rgba(0,245,255,0.4); border-radius:5px; padding:8px 18px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif; margin-bottom:16px;">
+      Клікни
+    </button>
+
+    <p style="color:#6080a0; font-size:14px;">Наведи мишу на блок нижче
+    <div id="object-handler-box"
+         style="background:#0a1020; border:1px dashed rgba(255,0,200,0.3); border-radius:6px; padding:14px 20px; margin-bottom:10px; color:#8099bb; cursor:default;">
+      Блок з обробником
+    </div>
+    <button onclick="removeObjectHandler()" style="background:#0a1828; color:#ff00c8; border:1px solid rgba(255,0,200,0.3); border-radius:5px; padding:6px 14px; cursor:pointer; font-size:13px; font-family:Rajdhani,sans-serif; margin-bottom:24px;">
+      Видалити обробник
+    </button>
+
+    <!-- === ЗАВДАННЯ 2А: СПИСОК + ДЕЛЕГУВАННЯ === -->
+    <h3>2. Делегування</h3>
+    <p style="color:#6080a0; font-size:14px;">Клікай на елементи</p>
+
+    <ul id="highlight-list" style="cursor:pointer;">
+      <li>🎮 The Witcher 3</li>
+      <li>🎮 Red Dead Redemption 2</li>
+      <li>🎮 Elden Ring</li>
+      <li>🎮 Counter-Strike 2</li>
+      <li>🎮 Minecraft</li>
+    </ul>
+
+    <!-- === ЗАВДАННЯ 2Б: МЕНЮ З data-action === -->
+    <h3>3. Меню з data-action</h3>
+    <p style="color:#6080a0; font-size:14px;">Один обробник</code>:</p>
+
+    <div id="data-menu" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+      <button data-action="search" style="background:#0a1828; color:#00f5ff; border:1px solid rgba(0,245,255,0.4); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;">Пошук</button>
+      <button data-action="filter" style="background:#0a1828; color:#00f5ff; border:1px solid rgba(0,245,255,0.4); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;">Фільтр</button>
+      <button data-action="sort"   style="background:#0a1828; color:#00f5ff; border:1px solid rgba(0,245,255,0.4); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;">Сортувати</button>
+      <button data-action="reset"  style="background:#0a1828; color:#ff00c8; border:1px solid rgba(255,0,200,0.3); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;">Очистити лог</button>
+    </div>
+
+    <!-- === ЗАВДАННЯ 2В: ПАТЕРН «ПОВЕДІНКА» === -->
+    <h3>4. Патерн «Поведінка»</h3>
+    <p style="color:#6080a0; font-size:14px;">Поведінка елементів задається атрибутом.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+      <button data-behavior="toggle-theme" style="background:#0a1828; color:#00f5ff; border:1px solid rgba(0,245,255,0.4); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;">Змінити тему</button>
+      <button data-behavior="clear-log"    style="background:#0a1828; color:#ff00c8; border:1px solid rgba(255,0,200,0.3); border-radius:5px; padding:8px 16px; cursor:pointer; font-size:14px; font-family:Rajdhani,sans-serif;">Очистити лог</button>
+    </div>
+
+    <!-- === ЛОГ ПОДІЙ === -->
+    <h3>Журнал подій</h3>
+    <div id="event-log" style="background:#060d18; border:1px solid rgba(0,245,255,0.15); border-radius:6px; padding:12px 16px; min-height:60px; font-size:13px; font-family:monospace; color:#6080a0; max-height:200px; overflow-y:auto;">
+      <div class="log-line" style="color:#6080a0;">Очікую подій...</div>
+    </div>
+
+  </section>
 
   <script src="script.js"></script>
 
@@ -176,34 +249,33 @@
     }
 
     // Кнопка 1 — Діалог з користувачем (зовнішня функція)
-    btnBlock.appendChild(makeBtn("💬 Діалог ", dialogWithUser));
-
+    btnBlock.appendChild(makeBtn(" Діалог ", dialogWithUser));
     // Кнопка 2 — Інфо про розробника (зовнішня функція)
-    btnBlock.appendChild(makeBtn("👤 Інфо про розробника", function () {
+    btnBlock.appendChild(makeBtn(" Інфо про розробника", function () {
       showDeveloperInfo("Шермер", "Володимир", "Студент");
     }));
 
     // Кнопка 3 — Порівняти два рядки (зовнішня функція)
-    btnBlock.appendChild(makeBtn("🔤 Порівняти рядки", compareTwoStrings));
+    btnBlock.appendChild(makeBtn(" Порівняти рядки", compareTwoStrings));
 
     // Кнопка 4 — Змінити фон на 30 сек (зовнішня функція)
-    btnBlock.appendChild(makeBtn("🎨 Змінити фон (30 сек)", changeBackgroundFor30s));
+    btnBlock.appendChild(makeBtn(" Змінити фон (30 сек)", changeBackgroundFor30s));
 
     // Кнопка 5 — Перенаправлення через location (BOM)
-    btnBlock.appendChild(makeBtn("🏆 Перейти до Топ 10", goToTop10));
+    btnBlock.appendChild(makeBtn(" Перейти до Топ 10", goToTop10));
 
     // Складаємо секцію: append — додає в кінець
     jsSection.append(jsTitle, jsDesc, btnBlock);
 
     // --- node.prepend — додаємо мітку на ПОЧАТОК секції ---
     var badge = document.createElement("span");
-    badge.textContent = "✦ JS LIVE DEMO";
+    badge.textContent = "JS LIVE";
     badge.style.cssText = "color:#ff00c8; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:2px;";
     jsSection.prepend(badge);
 
     // --- node.after — додаємо підказку ПІСЛЯ блоку кнопок ---
     var hint = document.createElement("p");
-    hint.textContent = "👆 Натисни будь-яку кнопку, щоб перевірити роботу скриптів.";
+    hint.textContent = "Натисни будь-яку кнопку.";
     hint.style.cssText = "color:#6080a0; font-size:13px; margin-top:12px;";
     btnBlock.after(hint);
 

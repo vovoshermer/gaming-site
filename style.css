@@ -554,3 +554,41 @@ q::after {
   content: "»";
   color: var(--neon);
 }
+
+/* ================================================
+   ПОДІЇ — стилі для демо-секції
+   ================================================ */
+
+/* Підсвічування активного елемента списку (делегування) */
+#highlight-list li.li-active {
+  background-color: rgba(0, 245, 255, 0.1);
+  color: #ffffff;
+  border-left-color: var(--neon);
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* Журнал подій — рядок */
+.log-line {
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Світла тема (data-behavior="toggle-theme") */
+body.theme-light {
+  background-color: #e8f0ff;
+  color: #0d1829;
+}
+body.theme-light #page-wrapper,
+body.theme-light #events-demo {
+  background-color: #f0f4ff;
+  border-color: rgba(0, 100, 200, 0.3);
+}
+body.theme-light nav {
+  background-color: rgba(220, 230, 255, 0.97);
+  border-color: rgba(0, 100, 200, 0.2);
+}
+body.theme-light #event-log {
+  background-color: #dde8ff;
+  color: #334;
+}
