@@ -260,4 +260,135 @@ document.addEventListener("DOMContentLoaded", function() {
   initListHighlight();
   initDataMenu();
   initBehaviors();
+  initMouseOverOut();
+  initDragAndDrop();
 });
+
+// ================================================
+// ЗАВДАННЯ: ПОДІЇ МИШІ — mouseover / mouseout
+// event.target, event.relatedTarget
+// ================================================
+
+function initMouseOverOut() {
+  var container = document.getElementById("mouseover-demo");
+  if (!container) return;
+
+  var log = document.getElementById("mouseover-log");
+
+  function logMsg(msg) {
+    if (!log) return;
+    var line = document.createElement("div");
+    line.className = "log-line";
+    line.textContent = msg;
+    log.appendChild(line);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  container.addEventListener("mouseover", function(event) {
+    var target = event.target;
+    var from = event.relatedTarget;
+
+    if (target === container) return;
+
+    // Підсвічуємо елемент
+    target.classList.add("mo-active");
+
+    var fromName = from ? (from.dataset.label || from.tagName) : "поза вікном";
+    var toName   = target.dataset.label || target.tagName;
+    logMsg("mouseover → " + toName);
+  });
+
+  container.addEventListener("mouseout", function(event) {
+    var target = event.target;
+    var to = event.relatedTarget;
+
+    if (target === container) return;
+
+    target.classList.remove("mo-active");
+
+    var toName   = to ? (to.dataset.label || to.tagName) : "поза вікном";
+    var fromName = target.dataset.label || target.tagName;
+    logMsg("mouseout  ← " + fromName);
+  });
+}
+
+// ================================================
+// ЗАВДАННЯ: DRAG-AND-DROP через mousedown/mousemove/mouseup
+// ================================================
+
+function initDragAndDrop() {
+  var draggables = document.querySelectorAll(".draggable-item");
+  var zones      = document.querySelectorAll(".drop-zone");
+  var log        = document.getElementById("mouseover-log");
+
+  function logMsg(msg) {
+    if (!log) return;
+    var line = document.createElement("div");
+    line.className = "log-line";
+    line.textContent = msg;
+    log.appendChild(line);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  draggables.forEach(function(el) {
+    var isDragging = false;
+    var ghost      = null;
+    var startX, startY, offsetX, offsetY;
+
+    el.addEventListener("mousedown", function(e) {
+      e.preventDefault();
+      isDragging = true;
+
+      // Створюємо "привид" — копію елемента
+      ghost = el.cloneNode(true);
+      ghost.style.cssText =
+        "position:fixed; pointer-events:none; z-index:9999; opacity:0.85;" +
+        "transform:rotate(2deg) scale(1.05); transition:none;";
+
+      var rect = el.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      ghost.style.left = rect.left + "px";
+      ghost.style.top  = rect.top  + "px";
+      ghost.style.width  = rect.width  + "px";
+      ghost.style.height = rect.height + "px";
+
+      document.body.appendChild(ghost);
+      el.classList.add("dragging");
+      logMsg("mousedown: починаю тягнути «" + el.textContent.trim() + "»");
+    });
+
+    document.addEventListener("mousemove", function(e) {
+      if (!isDragging || !ghost) return;
+
+      ghost.style.left = (e.clientX - offsetX) + "px";
+      ghost.style.top  = (e.clientY - offsetY) + "px";
+
+      // Підсвічуємо зону під курсором
+      zones.forEach(function(z) { z.classList.remove("dz-hover"); });
+      var elBelow = document.elementFromPoint(e.clientX, e.clientY);
+      var zone = elBelow ? elBelow.closest(".drop-zone") : null;
+      if (zone) zone.classList.add("dz-hover");
+    });
+
+    document.addEventListener("mouseup", function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+
+      if (ghost) { ghost.remove(); ghost = null; }
+      el.classList.remove("dragging");
+
+      // Перевіряємо, чи відпустили над зоною
+      zones.forEach(function(z) { z.classList.remove("dz-hover"); });
+      var elBelow = document.elementFromPoint(e.clientX, e.clientY);
+      var zone = elBelow ? elBelow.closest(".drop-zone") : null;
+
+      if (zone) {
+        zone.appendChild(el);
+        logMsg("mouseup: «" + el.textContent.trim() + "» → зона «" + (zone.dataset.name || zone.id) + "»");
+      } else {
+        logMsg("mouseup: кинуто поза зоною");
+      }
+    });
+  });
+}

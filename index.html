@@ -191,6 +191,60 @@
 
   </section>
 
+  <!-- ================================================
+       ЗАВДАННЯ: ПОДІЇ МИШІ — mouseover/mouseout + drag-and-drop
+       ================================================ -->
+  <section id="mouse-events-demo" style="background:#0d1829; border:1px solid rgba(0,245,255,0.2); border-radius:8px; padding:24px 28px; margin:32px 0;">
+
+    <span style="color:#00f5ff; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:2px;">MOUSE EVENTS</span>
+    <h2>Події миші</h2>
+
+    <!-- === MOUSEOVER / MOUSEOUT === -->
+    <h3>mouseover та mouseout</h3>
+    <p style="color:#6080a0; font-size:14px;">Наводь курсор на блоки
+
+    <div id="mouseover-demo" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding:16px; background:#060d18; border:1px solid rgba(0,245,255,0.1); border-radius:6px;">
+      <div class="mo-box" data-label="RPG" style="background:#0a1828; border:2px solid rgba(0,245,255,0.3); border-radius:6px; padding:14px 22px; color:#c8d8f0; font-family:Orbitron,sans-serif; font-size:13px; cursor:default; transition:all 0.2s;">⚔️ RPG</div>
+      <div class="mo-box" data-label="FPS" style="background:#0a1828; border:2px solid rgba(255,0,200,0.3); border-radius:6px; padding:14px 22px; color:#c8d8f0; font-family:Orbitron,sans-serif; font-size:13px; cursor:default; transition:all 0.2s;">🔫 FPS</div>
+      <div class="mo-box" data-label="Strategy" style="background:#0a1828; border:2px solid rgba(0,245,255,0.3); border-radius:6px; padding:14px 22px; color:#c8d8f0; font-family:Orbitron,sans-serif; font-size:13px; cursor:default; transition:all 0.2s;">♟️ Strategy</div>
+      <div class="mo-box" data-label="Simulator" style="background:#0a1828; border:2px solid rgba(255,0,200,0.3); border-radius:6px; padding:14px 22px; color:#c8d8f0; font-family:Orbitron,sans-serif; font-size:13px; cursor:default; transition:all 0.2s;">🏙️ Simulator</div>
+      <div class="mo-box" data-label="MMORPG" style="background:#0a1828; border:2px solid rgba(0,245,255,0.3); border-radius:6px; padding:14px 22px; color:#c8d8f0; font-family:Orbitron,sans-serif; font-size:13px; cursor:default; transition:all 0.2s;">🌐 MMORPG</div>
+    </div>
+
+    <!-- === DRAG AND DROP === -->
+    <h3>mousedown / mousemove / mouseup</h3>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-bottom:20px;">
+
+      <!-- Початкова зона з картками -->
+      <div class="drop-zone" id="dz-source" data-name="Джерело" style="flex:1; min-width:200px; background:#060d18; border:2px dashed rgba(0,245,255,0.25); border-radius:8px; padding:14px; min-height:160px;">
+        <div style="color:#6080a0; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:1px; margin-bottom:10px;">КАРТКИ</div>
+        <div class="draggable-item" style="background:#0d1829; border:1px solid rgba(0,245,255,0.3); border-radius:6px; padding:10px 14px; margin-bottom:8px; color:#c8d8f0; font-size:14px; cursor:grab; user-select:none;">The Witcher 3</div>
+        <div class="draggable-item" style="background:#0d1829; border:1px solid rgba(255,0,200,0.3); border-radius:6px; padding:10px 14px; margin-bottom:8px; color:#c8d8f0; font-size:14px; cursor:grab; user-select:none;">Elden Ring</div>
+        <div class="draggable-item" style="background:#0d1829; border:1px solid rgba(0,245,255,0.3); border-radius:6px; padding:10px 14px; margin-bottom:8px; color:#c8d8f0; font-size:14px; cursor:grab; user-select:none;">Minecraft</div>
+        <div class="draggable-item" style="background:#0d1829; border:1px solid rgba(255,0,200,0.3); border-radius:6px; padding:10px 14px; color:#c8d8f0; font-size:14px; cursor:grab; user-select:none;">Counter-Strike 2</div>
+      </div>
+
+      <!-- Зона «Улюблені» -->
+      <div class="drop-zone" id="dz-fav" data-name="Улюблені" style="flex:1; min-width:200px; background:#060d18; border:2px dashed rgba(255,0,200,0.25); border-radius:8px; padding:14px; min-height:160px;">
+        <div style="color:#ff00c8; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:1px; margin-bottom:10px;">УЛЮБЛЕНІ</div>
+      </div>
+
+      <!-- Зона «Хочу пограти» -->
+      <div class="drop-zone" id="dz-wishlist" data-name="Хочу пограти" style="flex:1; min-width:200px; background:#060d18; border:2px dashed rgba(0,245,255,0.25); border-radius:8px; padding:14px; min-height:160px;">
+        <div style="color:#00f5ff; font-size:11px; font-family:Orbitron,sans-serif; letter-spacing:1px; margin-bottom:10px;">ХОЧУ ПОГРАТИ</div>
+      </div>
+
+    </div>
+
+    <!-- Журнал подій (спільний з попередніми секціями) -->
+    <h3>Журнал подій миші</h3>
+    <div id="mouseover-log" style="background:#060d18; border:1px solid rgba(0,245,255,0.15); border-radius:6px; padding:12px 16px; min-height:60px; font-size:13px; font-family:monospace; color:#6080a0; max-height:180px; overflow-y:auto;">
+      <div class="log-line">Очікую подій миші...</div>
+    </div>
+
+  </section>
+
   <script src="script.js"></script>
 
   <script>
